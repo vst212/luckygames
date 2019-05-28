@@ -1,6 +1,3 @@
-/*! jQuery v3.3.1 | (c) JS Foundation and other contributors | jquery.org/license */
-/*eslint-disable*/
-/*jshint ignore:start*/
 var style = `<style>
 canvas{
 	-moz-user-select:none;
@@ -655,5 +652,3 @@ function generateSeed(length) {
 function generateClientSeed() {
   return generateSeed(32);
 }
-/*eslint-enable*/
-/*jshint ignore:end*/
