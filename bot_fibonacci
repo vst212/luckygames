@@ -562,6 +562,22 @@ function placeBet() {
 
 		}else{
 
+			roundd++;
+			if (roundd % z === 0) {
+			var rdd = Math.floor((Math.random() * (2 - 1 + 1)) + 1);
+			if (rdd == 1) {
+				prediction = Math.floor((Math.random() * (50 - 49 + 1)) + 49);
+				direction = 'under';
+				chance = prediction;
+				$('#rollUnder').click();
+			} else {
+				prediction = Math.floor((Math.random() * (50 - 49 + 1)) + 49);
+				direction = 'over';
+				chance = 99 - prediction;
+				$('#rollOver').click();
+			}
+			}
+
 			n-=1;
 			if(n<1) n=1;
 			f = fibonacci(n);
@@ -571,8 +587,8 @@ function placeBet() {
 			if(balance >= lastbalance){
 				//$('#clientSeed').val(generateClientSeed());
 				lastbalance = balance;
-				var rdd = Math.floor((Math.random() * (2 - 1 + 1)) + 1);
-				if (rdd == 1) {
+				var rddd = Math.floor((Math.random() * (2 - 1 + 1)) + 1);
+				if (rddd == 1) {
 				prediction = Math.floor((Math.random() * (50 - 49 + 1)) + 49);
 				direction = 'under';
 				chance = prediction;
