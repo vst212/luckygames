@@ -1,1 +1,4 @@
-check_date = true;
+function check(){ 
+  check_date = true;
+  }
+  check();
