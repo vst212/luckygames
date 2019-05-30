@@ -1,0 +1,153 @@
+//var us = atob("SGFycmllcg==");//Harrier
+var style = `<style>
+#gameContainer { 
+	border: 1px solid black;
+	border-radius: 10px;
+    margin-top:3px;
+    padding-bottom: 5px;
+    width: 430px;
+    background-color: #292929;
+    color: whitesmoke;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    z-index: 10;
+    position:absolute;
+    top:0;
+    right:0;
+	opacity: 0.9;
+}
+
+.boxTitle {
+    text-align: center;
+    padding: 8px 8px 5px 8px;
+    font-weight: bold;
+    border-bottom: solid #181a1e;
+}
+
+.boxScon {
+    text-align: center;
+    padding: 10px 8px 5px 8px;
+    border-bottom: solid #181a1e;
+}
+
+.boxStatus {
+    padding: 5px 0;
+    background-color: #101215;
+    width: 100%;
+    font-size: 12.5px !important;
+    border: 0;
+    color: white;
+    text-align: center;
+}
+.input-Box{
+	width: 120px;
+	font-size: 16px !important;
+	background: #292929;
+	border: 1px solid whitesmoke;
+	border-radius:5px;
+	color: whitesmoke;
+	text-align: center;
+	align:center;
+}	
+
+#_totalprofit{
+	font-family: Garamond, serif;
+	line-height: 1em;
+	color: #008000;
+	font-weight:bold;
+	font-size: 32px;
+	text-align:center;
+	text-shadow:0px 0px 0 rgb(-53,75,-53),1px 1px 0 rgb(-80,48,-80),2px 2px 0 rgb(-107,21,-107), 3px 3px 0 rgb(-134,-6,-134),4px 4px 3px rgba(0,0,0,0.85),4px 4px 1px rgba(0,0,0,0.5),0px 0px 3px rgba(0,0,0,.2);
+}
+
+.TextButton {
+	width: 55px;
+	background:#292929;
+    cursor: pointer;
+	text - align: center;
+	border: 1 px solid #808080;
+	border-radius: 5px;
+	line-height: 1em;
+	color: #008000;
+	font-weight:bold;
+	font-size: 16px;
+}
+.TextButton: hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}	
+
+.TextButton: active{
+    background - color: #393939;
+}
+.coltitle{
+	font-size: 16px;
+	text-align:center;	
+}
+.inputVal{
+	border-bottom: solid #181a1e;
+}	
+.tablecell{
+	width: 30%;
+	text-align: center;
+}
+.value8{
+	border-bottom: solid #181a1e;
+	font-size: 16px;
+	font-weight:bold;
+}	
+#_realtime,#_playtime{
+	border-right: solid #181a1e;
+//	border-top: solid #181a1e;
+	font-size:16px;
+	font-weight:bold;
+	color: #FFA500;
+}
+#refurl{
+	font-size:22px;
+	font-weight:bold;
+	//color: gold;
+}	
+</style>`;
+
+var html = `<div class = "boxDice" id="gameContainer">
+	<table width="100%" border="0" cellspacing="0" cellpadding="5">
+		<div class="boxTitle" id="isDynamic"><span id="refurl"></span></div>
+		<div class="boxScon"><span id="_totalprofit">0.00000000 [0.00%]</span></div>
+		<tbody>
+			<tr>
+				<td class="coltitle tablecell">BaseBet</td>
+				<td class="coltitle tablecell">UnderBalance</td>
+				<td class="coltitle tablecell">OverBalance</td>
+			</tr>
+			<tr>
+				<td class="inputVal tablecell"><input class="input-Box" id="basebetAmount" value="0.00000001"></td>
+				<td class="inputVal tablecell"><input class="input-Box" id="underBalance" value="0.00000000"></td>
+				<td class="inputVal tablecell"><input class="input-Box" id="overBalance" value="0.00000000"></td>
+			</tr>
+			<tr>
+				<td class="coltitle tablecell">MinChance</td>
+				<td class="coltitle tablecell">MaxChance</td>
+				<td class="coltitle tablecell">ProfitRisk %</td>
+			</tr>
+			<tr>
+				<td class="inputVal tablecell"><input class="input-Box" id="minchance" value="1"></td>
+				<td class="inputVal tablecell"><input class="input-Box" id="maxchance" value="94"></td>
+				<td class="inputVal tablecell"><input class="input-Box" id="profitrisk" value="1"></td>
+			</tr>
+		</tbody>
+	</table>	
+	<div id="chart" style="height: 160px;border: 2 solid #181a1e;"></div>	
+	<table width="100%" border="0" cellspacing="0" cellpadding="5">		
+		<tr>		
+			<td class="coltitle tablecell">RealTime</td>
+			<td class="coltitle tablecell" id="_realtime">00:00:00</td>
+			<td class="coltitle tablecell">PlayTime</td>
+			<td class="coltitle tablecell" id="_playtime">00:00:00</td>
+			<td class="coltitle tablecell"><input type="button" class="TextButton" id="_start" onclick="startDice()"value="PLAY"></td>
+		</tr>		
+      </tbody>
+   </table>   
+</div>`;
+$('head').append(style); 
+$('body').append(html);
